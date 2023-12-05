@@ -175,7 +175,6 @@ Route::get('/jspage', function () {
     return view('jscript.page');
 });
 
-
 // Controller:
 Route::get('/welcome', [UserController::class, 'welcome']);
 Route::get('/welcomeview', [UserController::class, 'welcomeView']);
@@ -191,11 +190,23 @@ Route::controller(UserController::class)->group(function () {
 // Single Action Controller:
 Route::get('/sac', SingleActionController::class);
 
-// Query Builder: using get
-Route::get('/querybuilder', [UserController::class, 'showGet']);
+// Query Builder: Read: get()
+Route::get('/querybuilder', [UserController::class, 'showGet'])->name('index');
 
-// Query Builder: using find
-Route::get('/querybuilder/student/{id}', [UserController::class, 'showFind'])->name('student');
+// Query Builder: Read: find()
+Route::get('/querybuilder/read/{id}', [UserController::class, 'showFind'])->name('read');
+
+// Query Builder: Create: insert()
+Route::get('/querybuilder/storestatic', [UserController::class, 'storeStatic']);
+
+// Query Builder: Create: insert()
+Route::get('/querybuilder/updatestatic/{id}', [UserController::class, 'updateStatic']);
+
+// Query Builder: Create: delete()
+Route::get('/querybuilder/delete/{id}', [UserController::class, 'delete'])->name('delete');
+
+// Query Builder: Create: truncate()
+Route::get('/querybuilder/truncate', [UserController::class, 'truncate'])->name('truncate');
 
 
 // ----- Task 1 : Student Form -----

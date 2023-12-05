@@ -16,9 +16,9 @@
 
 <body>
     <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h2 class="p-5 text-center">Student Information</h2>
+        <div class="comtainer">
+            <h2 class="p-5 text-center">Student Information</h2>
+            <div>
                 <table class="table table-borderless">
                     <tr>
                         <th>Name : </th>
@@ -39,6 +39,7 @@
                 </table>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"

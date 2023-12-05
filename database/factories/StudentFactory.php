@@ -17,10 +17,9 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-
             'name' => fake()->name(),
             'email' => fake()->email(),
-            'age' => fake()->numberBetween(14, 25),
+            'age' => fake()->numberBetween(16, 25),
             'city' => fake()->city()
         ];
     }

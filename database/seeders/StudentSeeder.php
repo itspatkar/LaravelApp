@@ -22,20 +22,14 @@ class StudentSeeder extends Seeder
             [
                 'name' => 'Mandar',
                 'email' => 'mandar@email.com',
-                'age' => '18',
+                'age' => '22',
                 'city' => 'Mumbai'
             ],
             [
                 'name' => 'Aman',
                 'email' => 'aman@email.com',
-                'age' => '16',
+                'age' => '18',
                 'city' => 'Pune'
-            ],
-            [
-                'name' => 'Akash',
-                'email' => 'akash@email.com',
-                'age' => '20',
-                'city' => 'Thane'
             ]
         ]);
 
