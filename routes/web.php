@@ -191,6 +191,12 @@ Route::controller(UserController::class)->group(function () {
 // Single Action Controller:
 Route::get('/sac', SingleActionController::class);
 
+// Query Builder: using get
+Route::get('/querybuilder', [UserController::class, 'showGet']);
+
+// Query Builder: using find
+Route::get('/querybuilder/student/{id}', [UserController::class, 'showFind'])->name('student');
+
 
 // ----- Task 1 : Student Form -----
 Route::get('/task1', function () {

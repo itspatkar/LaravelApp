@@ -21,15 +21,21 @@ class StudentSeeder extends Seeder
         $students = collect([
             [
                 'name' => 'Mandar',
-                'email' => 'mandar@email.com'
+                'email' => 'mandar@email.com',
+                'age' => '18',
+                'city' => 'Mumbai'
             ],
             [
                 'name' => 'Aman',
-                'email' => 'aman@email.com'
+                'email' => 'aman@email.com',
+                'age' => '16',
+                'city' => 'Pune'
             ],
             [
                 'name' => 'Akash',
-                'email' => 'akash@email.com'
+                'email' => 'akash@email.com',
+                'age' => '20',
+                'city' => 'Thane'
             ]
         ]);
 
