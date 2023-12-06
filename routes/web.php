@@ -220,6 +220,8 @@ Route::get('/querybuilder/updateform/{id}', [UserController::class, 'updateform'
 // Query Builder: Post method for update form:
 Route::post('/querybuilder/update/{id}', [UserController::class, 'update'])->name('update');
 
+// Pagination:
+Route::get('/querybuilder/pagination', [UserController::class, 'pagination']);
 
 
 // ----- Task 1 : Student Form -----

@@ -23,6 +23,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([StudentSeeder::class]);
 
-        student::factory()->count(4)->create();
+        student::factory()->count(10)->create();
     }
 }

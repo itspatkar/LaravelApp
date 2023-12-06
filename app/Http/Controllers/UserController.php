@@ -176,4 +176,11 @@ class UserController extends Controller
 
         return redirect()->route('updateform', $id);
     }
+
+    public function pagination()
+    {
+        $students = DB::table('students')->paginate(5);
+
+        return view('querybuilder.pagination', ['data' => $students]);
+    }
 }
