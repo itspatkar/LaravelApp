@@ -133,4 +133,47 @@ class UserController extends Controller
 
         return redirect()->route('index');
     }
+
+    public function create(Request $request)
+    {
+        $student = DB::table('students')->insertOrIgnore([
+            'name' => $request->name,
+            'email' =>  $request->email,
+            'age' =>  $request->age,
+            'city' =>  $request->city
+        ]);
+
+        if ($student) {
+            echo "<h2>Student added successfully.</h2>";
+        } else {
+            echo "<h2>Error: Student not added!<h2>";
+        }
+
+        return redirect()->route('createform');
+    }
+
+    public function updateform(string $id)
+    {
+        $student = DB::table('students')->find($id);
+        return view('querybuilder.updateform', ['student' => $student]);
+    }
+
+    public function update(string $id, Request $request)
+    {
+        // $student = DB::table('students')->find($id);
+        $student = DB::table('students')->where('id', $id)->update([
+            'name' => $request->name,
+            'email' =>  $request->email,
+            'age' =>  $request->age,
+            'city' =>  $request->city
+        ]);
+
+        if ($student) {
+            echo "<h2>Student information updated successfully.</h2>";
+        } else {
+            echo "<h2>Error: Student updation failed!<h2>";
+        }
+
+        return redirect()->route('updateform', $id);
+    }
 }

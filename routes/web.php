@@ -208,6 +208,19 @@ Route::get('/querybuilder/delete/{id}', [UserController::class, 'delete'])->name
 // Query Builder: Create: truncate()
 Route::get('/querybuilder/truncate', [UserController::class, 'truncate'])->name('truncate');
 
+// Query Builder: Create Form
+Route::view('/querybuilder/createform', 'querybuilder.create')->name('createform');
+
+// Query Builder: Post method for create form:
+Route::post('/querybuilder/create', [UserController::class, 'create'])->name('create');
+
+// Query Builder: Update Form
+Route::get('/querybuilder/updateform/{id}', [UserController::class, 'updateform'])->name('updateform');
+
+// Query Builder: Post method for update form:
+Route::post('/querybuilder/update/{id}', [UserController::class, 'update'])->name('update');
+
+
 
 // ----- Task 1 : Student Form -----
 Route::get('/task1', function () {

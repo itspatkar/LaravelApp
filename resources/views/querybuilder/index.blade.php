@@ -20,7 +20,7 @@
             <h2 class="p-5 text-center">STUDENTS</h2>
 
             <div class="m-3">
-                <a href="" class="btn btn-primary btn-sm">Add Student</a>
+                <a href="/querybuilder/createform" class="btn btn-primary btn-sm">Add Student</a>
                 <a href="{{ route('truncate') }}" class="btn btn-danger btn-sm">Delete All</a>
             </div>
 
@@ -42,6 +42,7 @@
                         <td>{{ $students->city }}</td>
                         <td>
                             <a href="{{ route('read', $students->id) }}" class="btn btn-primary btn-sm">View</a>
+                            <a href="{{ route('updateform', $students->id) }}" class="btn btn-warning btn-sm">Update</a>
                             <a href="{{ route('delete', $students->id) }}" class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>

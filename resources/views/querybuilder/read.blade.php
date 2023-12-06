@@ -38,6 +38,9 @@
                     </tr>
                 </table>
             </div>
+            <div class="text-center">
+                <a href="{{ route('index') }}" class="btn btn-info btn-sm">Home</a>
+            </div>
         </div>
     </div>
     </div>
