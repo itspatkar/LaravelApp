@@ -158,7 +158,8 @@ class UserController extends Controller
             echo "<h2>Error: Student not added!<h2>";
         }
 
-        return redirect()->route('createform');
+        // Redirect back to same page
+        return redirect()->back();
     }
 
     public function updateform(string $id)
@@ -169,6 +170,13 @@ class UserController extends Controller
 
     public function update(string $id, Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'email' =>  'required|email',
+            'age' => 'required|numeric|min:16',
+            'city' => 'required'
+        ]);
+
         // $student = DB::table('students')->find($id);
         $student = DB::table('students')->where('id', $id)->update([
             'name' => $request->name,
