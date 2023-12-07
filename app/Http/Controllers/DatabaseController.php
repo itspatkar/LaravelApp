@@ -7,6 +7,5 @@ use Illuminate\Http\Request;
 class DatabaseController extends Controller
 {
     public function show(){
-        $
     }
 }

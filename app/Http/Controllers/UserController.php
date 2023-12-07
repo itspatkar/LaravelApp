@@ -6,6 +6,8 @@ use App\Models\student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
+
+// Basic Controller:
 class UserController extends Controller
 {
     public function welcome()
