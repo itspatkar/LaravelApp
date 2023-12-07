@@ -20,24 +20,69 @@
     <div class="container">
         <h2 class="p-5 text-center">Add New Student</h2>
 
+        {{-- Laravel Errors
+        @if ($errors->any())
+            <ul class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        @endif --}}
+
+
         <div class="container mx-5">
             <form method="post" action="{{ route('create') }}">
                 @csrf
-                <div class="input-group mb-3">
-                    <td><label class="input-group-text" for="name"><b>Name</b> </label></td>
-                    <td><input class="form-control" type="text" name="name" autofocus required></td>
+                <div class="mb-3">
+                    <div class="input-group">
+                        <label class="input-group-text" for="name"><b>Name</b> </label>
+                        <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
+                            value="{{ old('name') }}" autofocus required>
+                    </div>
+                    <span class="text-danger">
+                        @error('name')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
-                <div class="input-group mb-3">
-                    <td><label class="input-group-text" for="email"><b>Email</b> </label></td>
-                    <td><input class="form-control" type="email" name="email" required></td>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <label class="input-group-text" for="email"><b>Email</b> </label>
+                        <input class="form-control @error('email') is-invalid @enderror" type="email" name="email"
+                            value="{{ old('email') }}" required>
+                    </div>
+                    <span class="text-danger">
+                        @error('email')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
-                <div class="input-group mb-3">
-                    <td><label class="input-group-text" for="age"><b>Age</b> </label></td>
-                    <td><input class="form-control" type="number" name="age" required></td>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <label class="input-group-text" for="age"><b>Age</b> </label>
+                        <input class="form-control @error('age') is-invalid @enderror" type="number" name="age"
+                            value="{{ old('age') }}" required>
+                    </div>
+                    <span class="text-danger">
+                        @error('age')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
-                <div class="input-group mb-3">
-                    <td><label class="input-group-text" for="city"><b>City</b> </label></td>
-                    <td><input class="form-control" type="text" name="city" required></td>
+
+                <div class="mb-3">
+                    <div class="input-group">
+                        <label class="input-group-text" for="city"><b>City</b> </label>
+                        <input class="form-control @error('city') is-invalid @enderror" type="text" name="city"
+                            value="{{ old('city') }}" required>
+                    </div>
+                    <span class="text-danger">
+                        @error('city')
+                            {{ $message }}
+                        @enderror
+                    </span>
                 </div>
 
                 <div>

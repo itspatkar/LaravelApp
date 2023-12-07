@@ -136,6 +136,15 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
+        // return $request->all();
+
+        $request->validate([
+            'name' => 'required',
+            'email' =>  'required|email',
+            'age' => 'required|numeric|min:16',
+            'city' => 'required'
+        ]);
+
         $student = DB::table('students')->insertOrIgnore([
             'name' => $request->name,
             'email' =>  $request->email,
