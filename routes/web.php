@@ -227,12 +227,13 @@ Route::get('/querybuilder/pagination', [UserController::class, 'pagination']);
 
 // Models - StudentController:
 Route::get('/models', [StudentController::class, 'index'])->name('home');
-Route::get('/models/{id}', [StudentController::class, 'show'])->name('showStudent');
+Route::get('/models/show/{id}', [StudentController::class, 'show'])->name('showStudent');
 Route::get('/models/create', [StudentController::class, 'create'])->name('createStudent'); // Components
 Route::post('/models/store', [StudentController::class, 'store'])->name('storeStudent');
-// Route::get('/models/edit/{id}', [StudentController::class, 'edit'])->name('editStudent');
-// Route::post('/models/update/{id}', [StudentController::class, 'update'])->name('updateStudent');
-Route::post('/models/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
+Route::get('/models/edit/{id}', [StudentController::class, 'edit'])->name('editStudent');
+Route::post('/models/update/{id}', [StudentController::class, 'update'])->name('updateStudent');
+Route::get('/models/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
+Route::get('/models/deleteall', [UserController::class, 'truncate'])->name('deleteAll');
 
 
 

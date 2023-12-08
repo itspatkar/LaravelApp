@@ -143,7 +143,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' =>  'required|email',
-            'age' => 'required|numeric|min:16',
+            'age' => 'required|numeric|min:16|max:28',
             'city' => 'required'
         ]);
 
@@ -175,7 +175,7 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' =>  'required|email',
-            'age' => 'required|numeric|min:16',
+            'age' => 'required|numeric|min:16|max:28',
             'city' => 'required'
         ]);
 

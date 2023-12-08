@@ -34,7 +34,7 @@ class StudentController extends Controller
         $request->validate([
             'name' => 'required',
             'email' =>  'required|email',
-            'age' => 'required|numeric|min:16',
+            'age' => 'required|numeric|min:16|max:28',
             'city' => 'required'
         ]);
 
@@ -72,7 +72,8 @@ class StudentController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $student = Student::find($id);
+        return view('models.edit', ['student' => $student]);
     }
 
     /**
@@ -80,7 +81,21 @@ class StudentController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' =>  'required|email',
+            'age' => 'required|numeric|min:16|max:28',
+            'city' => 'required'
+        ]);
+
+        $student = Student::find($id);
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->age = $request->age;
+        $student->city =  $request->city;
+        $student->save();
+
+        return redirect()->route('editStudent', $id);
     }
 
     /**
@@ -88,12 +103,19 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        if (Student::contains($id)) {
-            Student::find($id)::delete();
+        if (Student::all()->contains($id)) {
+            Student::find($id)->delete();
         } else {
             return "<h2>Id not found!</h2>";
         }
 
-        return redirect()->route('index');
+        return redirect()->back();
+    }
+
+    public function truncate()
+    {
+        Student::all()->truncate();
+
+        return redirect()->back();
     }
 }

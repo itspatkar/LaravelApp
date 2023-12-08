@@ -21,7 +21,7 @@
         <h2 class="p-5 text-center">Update Student Information</h2>
 
         <div class="container mx-5">
-            <form method="post" action="{{ route('update', $student->id) }}">
+            <form method="post" action="{{ route('updateStudent', $student->id) }}">
                 @csrf
                 <div class="mb-3">
                     <div class="input-group">
@@ -77,7 +77,7 @@
 
                 <div>
                     <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
-                    <a type="button" class="btn btn-info btn-sm" href="{{ route('index') }}">Home</a>
+                    <a type="button" class="btn btn-info btn-sm" href="{{ route('home') }}">Home</a>
                 </div>
             </form>
         </div>

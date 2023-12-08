@@ -19,7 +19,7 @@
 <body>
     <div class="container">
         <div class="container">
-            <h2 class="p-5 text-center">STUDENTS</h2>
+            <h2 class="p-5 text-center">STUDENTS PORTAL</h2>
 
             <div class="m-3">
                 <a href="{{ url('/querybuilder/createform') }}" class="btn btn-primary btn-sm">Add Student</a>
