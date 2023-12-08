@@ -8,12 +8,18 @@ use Illuminate\View\Component;
 
 class Input extends Component
 {
+    public $type;
+    public $name;
+    public $passvar;
+
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($type, $name, $passvar = "Default Test")
     {
-        //
+        $this->type = $type;
+        $this->name = $name;
+        $this->passvar = $passvar;
     }
 
     /**

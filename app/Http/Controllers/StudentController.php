@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Student;
 
 class StudentController extends Controller
 {
@@ -11,7 +12,10 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('models.index');
+        $students = Student::all();
+        $data = compact('students');
+
+        return view('models.index')->with($data);
     }
 
     /**
@@ -19,7 +23,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        //
+        return view('models.create');
     }
 
     /**
@@ -27,7 +31,24 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' =>  'required|email',
+            'age' => 'required|numeric|min:16',
+            'city' => 'required'
+        ]);
+
+        // print_r($request->all());
+
+        // Insert query using Eloquent ORM:
+        $student = new Student;
+        $student->name = $request['name'];
+        $student->email = $request['email'];
+        $student->age = $request['age'];
+        $student->city = $request['city'];
+        $student->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -35,7 +56,15 @@ class StudentController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $students = Student::all();
+
+        if ($students->contains($id)) {
+            $student = $students->find($id);
+
+            return view('models.show', ['data' => $student]);
+        } else {
+            return "<h2>Id not found!</h2>";
+        }
     }
 
     /**
@@ -59,6 +88,12 @@ class StudentController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        if (Student::contains($id)) {
+            Student::find($id)::delete();
+        } else {
+            return "<h2>Id not found!</h2>";
+        }
+
+        return redirect()->route('index');
     }
 }

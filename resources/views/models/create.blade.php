@@ -29,11 +29,20 @@
             </ul>
         @endif --}}
 
-
         <div class="container mx-5">
-            <form method="post" action="{{ route('create') }}">
+            <form method="post" action="{{ route('storeStudent') }}">
                 @csrf
-                <div class="mb-3">
+
+                @php
+                    $passvar = 'Test';
+                @endphp
+
+                <x-input type="text" name="name" :passvar="$passvar" />
+                <x-input type="email" name="email" />
+                <x-input type="number" name="age" />
+                <x-input type="text" name="city" />
+
+                {{-- <div class="mb-3">
                     <div class="input-group">
                         <label class="input-group-text" for="name"><b>Name</b> </label>
                         <input class="form-control @error('name') is-invalid @enderror" type="text" name="name"
@@ -83,11 +92,11 @@
                             {{ $message }}
                         @enderror
                     </span>
-                </div>
+                </div> --}}
 
                 <div>
                     <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
-                    <a type="button" class="btn btn-info btn-sm" href="{{ route('index') }}">Home</a>
+                    <a type="button" class="btn btn-info btn-sm" href="{{ route('home') }}">Home</a>
                 </div>
             </form>
         </div>

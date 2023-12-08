@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Students Portal Paginate</title>
+    <title>Students Portal</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,7 +23,7 @@
             <h2 class="p-5 text-center">STUDENTS</h2>
 
             <div class="m-3">
-                <a href="/querybuilder/createform" class="btn btn-success btn-sm">Add Student</a>
+                <a href="{{ url('/querybuilder/createform') }}" class="btn btn-success btn-sm">Add Student</a>
                 <a href="{{ route('truncate') }}" class="btn btn-danger btn-sm">Delete All</a>
             </div>
 
@@ -36,25 +36,25 @@
                     <th>City</th>
                     <th>Actions</th>
                 </tr>
-                @foreach ($data as $id => $students)
+                @foreach ($students as $student)
                     <tr>
-                        <td>{{ $students->id }}</td>
-                        <td>{{ $students->name }}</td>
-                        <td>{{ $students->email }}</td>
-                        <td>{{ $students->age }}</td>
-                        <td>{{ $students->city }}</td>
+                        <td>{{ $student->id }}</td>
+                        <td>{{ $student->name }}</td>
+                        <td>{{ $student->email }}</td>
+                        <td>{{ $student->age }}</td>
+                        <td>{{ $student->city }}</td>
                         <td>
-                            <a href="{{ route('showStudent', $students->id) }}" class="btn btn-primary btn-sm">View</a>
-                            <a href="{{ route('updateStudent', $students->id) }}"
-                                class="btn btn-warning btn-sm">Update</a>
-                            <a href="{{ route('deleteStudent', $students->id) }}"
+                            <a href="{{ route('showStudent', $student->id) }}" class="btn btn-primary btn-sm">View</a>
+                            {{-- <a href="{{ route('updateStudent', $student->id) }}"
+                                class="btn btn-warning btn-sm">Update</a> --}}
+                            <a href="{{ route('deleteStudent', $student->id) }}"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>
                     </tr>
                 @endforeach
             </table>
 
-            <div class="m-3">{{ $data->links() }}</div>
+            {{-- <div class="m-3">{{ $data->links() }}</div> --}}
             {{-- <div class="m-3">{{ $data->links('pagination::bootstrap-5') }}</div> --}}
 
         </div>

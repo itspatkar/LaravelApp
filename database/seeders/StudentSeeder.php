@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\student;
+use App\Models\Student;
 
 class StudentSeeder extends Seeder
 {
@@ -13,7 +13,7 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        // student::create([
+        // Student::create([
         //     'name' => 'Mandar',
         //     'email' => 'mandar@email.com'
         // ]);
@@ -34,7 +34,7 @@ class StudentSeeder extends Seeder
         ]);
 
         $students->each(function ($student) {
-            student::insert($student);
+            Student::insert($student);
         });
     }
 }

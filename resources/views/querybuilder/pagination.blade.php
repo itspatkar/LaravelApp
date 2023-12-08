@@ -23,7 +23,7 @@
             <h2 class="p-5 text-center">STUDENTS</h2>
 
             <div class="m-3">
-                <a href="/querybuilder/createform" class="btn btn-success btn-sm">Add Student</a>
+                <a href="{{ url('/querybuilder/createform') }}" class="btn btn-success btn-sm">Add Student</a>
                 <a href="{{ route('truncate') }}" class="btn btn-danger btn-sm">Delete All</a>
             </div>
 
