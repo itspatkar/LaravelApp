@@ -12,3 +12,12 @@ class Student extends Model
     protected $table = "students";
     protected $primaryKey = "id";
 }
+
+
+
+// Models:
+// php artisan make:model TableName
+// app->Models->
+
+// If we want to migrate and at same time want to create Model:
+// php artisan make:model TableName --migration

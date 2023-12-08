@@ -28,7 +28,7 @@ class StudentSeeder extends Seeder
             [
                 'name' => 'Aman',
                 'email' => 'aman@email.com',
-                'age' => '18',
+                'age' => '19',
                 'city' => 'Pune'
             ]
         ]);
