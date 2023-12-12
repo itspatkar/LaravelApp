@@ -233,7 +233,7 @@ Route::post('/models/store', [StudentController::class, 'store'])->name('storeSt
 Route::get('/models/edit/{id}', [StudentController::class, 'edit'])->name('editStudent');
 Route::post('/models/update/{id}', [StudentController::class, 'update'])->name('updateStudent');
 Route::get('/models/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
-Route::get('/models/deleteall', [UserController::class, 'truncate'])->name('deleteAll');
+Route::get('/models/deleteall', [StudentController::class, 'truncate'])->name('deleteAll');
 
 
 
