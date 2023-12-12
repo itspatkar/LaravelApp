@@ -20,11 +20,18 @@
 <body>
     <div class="container">
         <div class="container">
-            <h2 class="p-5 text-center">STUDENTS PORTAL</h2>
+            <h2 class="p-4 text-center">STUDENTS PORTAL</h2>
 
             <div class="m-3">
                 <a href="{{ route('createStudent') }}" class="btn btn-success btn-sm">Add Student</a>
                 <a href="{{ route('deleteAll') }}" class="btn btn-danger btn-sm">Delete All</a>
+                <div style="float: right">
+                    <a href="{{ route('importPage') }}" class="btn btn-secondary  btn-sm">Import
+                        Students</a>
+                    <a href="{{ route('exportStudents') }}" class="btn btn-dark btn-sm">Export
+                        Students</a>
+                </div>
+
             </div>
 
             <table class="table table-bordered table-striped">
@@ -45,7 +52,8 @@
                         <td>{{ $student->city }}</td>
                         <td>
                             <a href="{{ route('showStudent', $student->id) }}" class="btn btn-primary btn-sm">View</a>
-                            <a href="{{ route('editStudent', $student->id) }}" class="btn btn-warning btn-sm">Update</a>
+                            <a href="{{ route('editStudent', $student->id) }}"
+                                class="btn btn-warning btn-sm">Update</a>
                             <a href="{{ route('deleteStudent', $student->id) }}"
                                 class="btn btn-danger btn-sm">Delete</a>
                         </td>

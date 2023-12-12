@@ -234,7 +234,9 @@ Route::get('/models/edit/{id}', [StudentController::class, 'edit'])->name('editS
 Route::post('/models/update/{id}', [StudentController::class, 'update'])->name('updateStudent');
 Route::get('/models/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
 Route::get('/models/deleteall', [StudentController::class, 'truncate'])->name('deleteAll');
-
+Route::get('/models/importpage', [StudentController::class, "importpage"])->name('importPage');
+Route::post('/models/import', [StudentController::class, "import"])->name('importStudents');
+Route::get('/models/export', [StudentController::class, "export"])->name('exportStudents'); // Excel export
 
 
 // ----- Task 1 : Student Form -----

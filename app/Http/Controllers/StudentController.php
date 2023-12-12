@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\StudentExport;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends Controller
 {
@@ -117,5 +119,21 @@ class StudentController extends Controller
         Student::all()->truncate();
 
         return redirect()->back();
+    }
+
+    public function importpage()
+    {
+        return view('models.importpage');
+    }
+
+    public function import(Request $request)
+    {
+        Excel::import(new StudentController,  $request->file('sheet'));
+        return back()->with('success', 'Students imported successfully.');
+    }
+
+    public function export()
+    {
+        return Excel::download(new StudentExport, 'students.xlsx');
     }
 }
