@@ -235,8 +235,9 @@ Route::post('/models/update/{id}', [StudentController::class, 'update'])->name('
 Route::get('/models/delete/{id}', [StudentController::class, 'destroy'])->name('deleteStudent');
 Route::get('/models/deleteall', [StudentController::class, 'truncate'])->name('deleteAll');
 Route::get('/models/importpage', [StudentController::class, "importpage"])->name('importPage');
-Route::post('/models/import', [StudentController::class, "import"])->name('importStudents');
+Route::post('/models/import', [StudentController::class, "import"])->name('importStudents'); // Excel import
 Route::get('/models/export', [StudentController::class, "export"])->name('exportStudents'); // Excel export
+Route::get('/models/pdf/{id}', [StudentController::class, "pdf"])->name('generatePDF'); // Generate PDF
 
 
 // ----- Task 1 : Student Form -----

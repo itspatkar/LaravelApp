@@ -48,6 +48,8 @@
                 </table>
             </div>
             <div class="text-center">
+                <a href="{{ route('generatePDF', $data->id, ['download' => 'pdf']) }}"
+                    class="btn btn-dark btn-sm">Download PDF</a>
                 <a href="{{ route('home') }}" class="btn btn-info btn-sm">Home</a>
             </div>
         </div>

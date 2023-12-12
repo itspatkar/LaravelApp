@@ -6,6 +6,9 @@ use App\Exports\StudentExport;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\Snappy\Facades\SnappyPdf;
+use Barryvdh\Snappy\PdfWrapper;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 
 class StudentController extends Controller
 {
@@ -129,11 +132,24 @@ class StudentController extends Controller
     public function import(Request $request)
     {
         Excel::import(new StudentController,  $request->file('sheet'));
+
         return back()->with('success', 'Students imported successfully.');
     }
 
     public function export()
     {
         return Excel::download(new StudentExport, 'students.xlsx');
+    }
+
+    public function pdf(Request $request, string $id)
+    {
+        if ($request->has('download')) {
+            // pass view file
+            $pdf = PDF::loadView('showStudent', $id);
+            // download pdf
+            return $pdf->download('student.pdf');
+        }
+
+        return view('models.show', $id);
     }
 }
