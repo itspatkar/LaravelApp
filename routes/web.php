@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
-
+use App\Livewire\AddNumbers;
+use App\Livewire\Clicker;
+use App\Livewire\Counter;
+use App\Livewire\Form;
 
 /*
 |--------------------------------------------------------------------------
@@ -117,6 +120,16 @@ Route::get('/param_con/{data}', function ($data) {
 Route::get('/param_in/{select}', function ($select) {
     return "<h2>Here is your: " . $select . "</h2>";
 })->whereIn('select', ['tea', 'coffee', 'water']);
+
+// ----- Task 1 : Student Form -----
+Route::get('/task1', function () {
+    return view('task1.student');
+});
+
+Route::post('/task1', function (Request $request) {
+    //dd($request->all());
+    return $request->input('name');
+})->name('submitForm');
 
 // Named route:
 Route::get('/profile', function () {
@@ -240,12 +253,12 @@ Route::get('/models/export', [StudentController::class, "export"])->name('export
 Route::get('/models/pdf/{id}', [StudentController::class, "pdf"])->name('generatePDF'); // Generate PDF
 
 
-// ----- Task 1 : Student Form -----
-Route::get('/task1', function () {
-    return view('task1.student');
+// Livewire
+Route::get('/livewire', function () {
+    return view('livewire');
 });
 
-Route::post('/task1', function (Request $request) {
-    //dd($request->all());
-    return $request->input('name');
-})->name('submitForm');
+Route::get('/counter', Counter::class);
+Route::get('/addnum', AddNumbers::class);
+Route::get('/clicker', Clicker::class);
+Route::get('/form', Form::class);
