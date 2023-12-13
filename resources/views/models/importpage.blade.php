@@ -21,6 +21,12 @@
         <h2 class="p-5 text-center">Import Students</h2>
 
         <div class="container text-center mx-5">
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
+
             <form method="post" action="{{ route('importStudents') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="p-5">
