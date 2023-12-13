@@ -141,15 +141,19 @@ class StudentController extends Controller
         return Excel::download(new StudentExport, 'students.xlsx');
     }
 
-    public function pdf(Request $request, string $id)
+    public function pdf(string $id)
     {
-        if ($request->has('download')) {
-            // pass view file
-            $pdf = PDF::loadView('showStudent', $id);
-            // download pdf
+        $students = Student::all();
+
+        if ($students->contains($id)) {
+            $student = $students->find($id);
+
+            $pdf = PDF::loadView('models.print', ['data' => $student]);
             return $pdf->download('student.pdf');
+        } else {
+            return "<h2>Id not found!</h2>";
         }
 
-        return view('models.show', $id);
+        return redirect()->back();
     }
 }
