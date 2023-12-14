@@ -10,6 +10,8 @@ use App\Livewire\AddNumbers;
 use App\Livewire\Clicker;
 use App\Livewire\Counter;
 use App\Livewire\Form;
+use App\Livewire\Show;
+use App\Livewire\Task;
 
 /*
 |--------------------------------------------------------------------------
@@ -262,3 +264,5 @@ Route::get('/counter', Counter::class);
 Route::get('/addnum', AddNumbers::class);
 Route::get('/clicker', Clicker::class);
 Route::get('/form', Form::class);
+Route::get('/show', Show::class);
+Route::get('/task', Task::class);
