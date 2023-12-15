@@ -9,9 +9,19 @@
 </head>
 
 <body class="antialiased">
-    @livewire('clicker')
+    {{-- @livewire('clicker') --}}
 
     {{-- <livewire:clicker /> --}}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                @livewire('register')
+            </div>
+            <div class="col">
+                @livewire('register')
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
