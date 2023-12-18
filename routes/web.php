@@ -292,6 +292,11 @@ Route::get('/access/revoke', function () {
     session()->forget('auth');
     return "Access Revoked!";
 });
+// Group Middleware:
+Route::middleware(['mult'])->group(function () {
+    Route::get('/private', [StudentController::class, 'index']);
+    Route::view('/secret', 'middleware.secret');
+});
 
 
 // Livewire

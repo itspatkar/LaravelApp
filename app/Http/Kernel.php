@@ -44,6 +44,12 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\ThrottleRequests::class . ':api',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
+
+        // Group Middleware:
+        'mult' => [
+            \App\Http\Middleware\AccessControl::class,
+            \App\Http\Middleware\AgeCheck::class,
+        ],
     ];
 
     /**
