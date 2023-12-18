@@ -299,6 +299,11 @@ Route::middleware(['mult'])->group(function () {
 });
 
 
+// Authorization with Sessions & Middleware:
+Route::view('/auth/login', 'auth.login');
+Route::view('/auth/register', 'auth.register');
+
+
 // Livewire
 Route::get('/livewire', function () {
     return view('livewire');
