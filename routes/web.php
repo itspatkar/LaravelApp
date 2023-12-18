@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\SingleActionController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\View;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
@@ -254,6 +253,33 @@ Route::get('/models/importpage', [StudentController::class, "importpage"])->name
 Route::post('/models/import', [StudentController::class, "import"])->name('importStudents'); // Excel import
 Route::get('/models/export', [StudentController::class, "export"])->name('exportStudents'); // Excel export
 Route::get('/models/pdf/{id}', [StudentController::class, "pdf"])->name('generatePDF'); // Generate PDF
+
+// Sessions:
+Route::get('/session/get', function () {
+    $session = session()->all();
+    return $session;
+});
+Route::get('/session/set', function (Request $request) {
+    $request->session()->put('username', 'Mandar');
+    $request->session()->put('userid', '108');
+    session()->flash('status', 'Success');
+
+    return  redirect('/session/get');
+});
+Route::get('/session/destroy', function () {
+    session()->forget('username');
+    session()->forget('userid');
+
+    return  redirect('/session/get');
+});
+
+// Middleware:
+Route::view('/middleware/private', 'middleware.private')->middleware('guard'); // Protected route
+Route::view('/middleware/public', 'middleware.public'); // Unprotected route
+Route::get('/unauth', function () {
+    echo "You're not authorized to access this page!";
+    die();
+});
 
 
 // Livewire

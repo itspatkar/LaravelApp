@@ -19,6 +19,7 @@
         .container {
             max-width: 700px;
             margin: auto;
+            font-size: 1.5rem;
         }
     </style>
 </head>
@@ -27,31 +28,7 @@
     <div class="container">
         <div class="container">
             <h2 class="p-5 text-center">Student Information</h2>
-            <div>
-                <table class="table table-striped">
-                    <tr>
-                        <th>Name</th>
-                        <td>:&emsp; {{ $data->name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Email</th>
-                        <td>:&emsp; {{ $data->email }}</td>
-                    </tr>
-                    <tr>
-                        <th>Age</th>
-                        <td>:&emsp; {{ $data->age }}</td>
-                    </tr>
-                    <tr>
-                        <th>City</th>
-                        <td>:&emsp; {{ $data->city }}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="text-center">
-                <a href="{{ route('generatePDF', $data->id, ['download' => 'pdf']) }}"
-                    class="btn btn-dark btn-sm">Download PDF</a>
-                <a href="{{ route('home') }}" class="btn btn-info btn-sm">Home</a>
-            </div>
+            <p>This is confidential information.</p>
         </div>
     </div>
 </body>
