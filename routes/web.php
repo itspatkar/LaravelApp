@@ -99,16 +99,20 @@ Route::get('/passwitharray/', function () {
     return view('passwitharray')->with('users', $users);
 });
 
-function getUsers()
-{
-    return [
+// function getUsers()
+// {
+//     return [
+//         1 => ['name' => 'Mandar', 'city' => 'Mumbai'],
+//         2 => ['name' => 'Aman', 'city' => 'Pune'],
+//         3 => ['name' => 'Akash', 'city' => 'Nashik']
+//     ];
+// }
+Route::get('/printuser/{id}', function ($id) {
+    $users = [
         1 => ['name' => 'Mandar', 'city' => 'Mumbai'],
         2 => ['name' => 'Aman', 'city' => 'Pune'],
         3 => ['name' => 'Akash', 'city' => 'Nashik']
     ];
-}
-Route::get('/printuser/{id}', function ($id) {
-    $users = getUsers();
     abort_if(!isset($users[$id]), 404);
     $user = $users[$id];
     return view('printuser', ['id' => $user]);
@@ -274,11 +278,19 @@ Route::get('/session/destroy', function () {
 });
 
 // Middleware:
-Route::view('/middleware/private', 'middleware.private')->middleware('guard'); // Protected route
+Route::view('/middleware/private', 'middleware.private')->middleware('access'); // Protected route
 Route::view('/middleware/public', 'middleware.public'); // Unprotected route
 Route::get('/unauth', function () {
     echo "You're not authorized to access this page!";
     die();
+});
+Route::get('/access/grant', function () {
+    session()->put('auth', '1');
+    return "Access Granted!";
+});
+Route::get('/access/revoke', function () {
+    session()->forget('auth');
+    return "Access Revoked!";
 });
 
 

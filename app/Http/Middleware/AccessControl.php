@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class WebGuard
+class AccessControl
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,10 @@ class WebGuard
      */
     public function handle(Request $request, Closure $next): Response
     {
-        // echo "Middleware Initiated";
-
-        // echo $request->age;
-
-        // if ($request->age < 18) {
-        //     echo "You're mot allow to access the page!";
-        //     die();
-        // }
-
-        return $next($request);
+        if (session()->has('auth') && session('auth') == 1) {
+            return $next($request);
+        } else {
+            return redirect('unauth');
+        }
     }
 }
