@@ -21,7 +21,7 @@
         <h2 class="p-5 text-center">Unauthorized Access</h2>
 
         <div class="container mx-5">
-            <h4>You're not authorized to access this page, plese register or login!</h4>
+            <h4>You're not authorized to access this page, please register or login!</h4>
         </div>
 
         <div class="text-center p-5">
