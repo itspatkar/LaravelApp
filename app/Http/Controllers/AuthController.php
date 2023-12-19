@@ -11,7 +11,8 @@ class AuthController extends Controller
     public function index()
     {
         $auths = Auth::all();
-        $data = compact('auths');
+        $email = session('login');
+        $data = compact('auths', 'email');
 
         return view('auth.index')->with($data);
     }
@@ -38,6 +39,9 @@ class AuthController extends Controller
 
     public function loginPage()
     {
+        if (session()->has('login')) {
+            return '<h2 style="text-align:center">You are logged in as <b>' . session('login') . "</b> please logout.</h2>";
+        }
         return view('auth.loginpage');
     }
 
@@ -59,10 +63,21 @@ class AuthController extends Controller
         } else {
             return "<h2>User not found, please register!</h2>";
         }
+        $email = $request->email;
+        $data = compact('email');
+
+        return view('auth.private')->with($data);
     }
 
     public function logout()
     {
         session()->forget('login');
+
+        return view('auth.loginpage');
+    }
+
+    public function unauth()
+    {
+        return view('auth.unauth');
     }
 }

@@ -15,10 +15,10 @@ class AuthControl
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (session()->has('auth') && session('auth') == 1) {
+        if (session()->has('login')) {
             return $next($request);
         } else {
-            return redirect('unauth');
+            return redirect('/unauth');
         }
     }
 }

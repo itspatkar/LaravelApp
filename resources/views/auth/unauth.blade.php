@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Authorized Users</title>
+    <title>Add New Student</title>
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,34 +18,15 @@
 
 <body>
     <div class="container">
-        <h2 class="p-5 text-center">Authorized Users</h2>
-
-        <div class="text-center p-3">
-            @if (Str::length($email) > 0)
-                You're logged in as <b>{{ $email }}</b>
-            @endif
-        </div>
+        <h2 class="p-5 text-center">Unauthorized Access</h2>
 
         <div class="container mx-5">
-            <table class="table table-bordered table-striped">
-                <tr class="table-dark">
-                    <th>ID</th>
-                    <th>Email</th>
-                </tr>
-                @foreach ($auths as $auth)
-                    <tr>
-                        <td>{{ $auth->id }}</td>
-                        <td>{{ $auth->email }}</td>
-                    </tr>
-                @endforeach
-            </table>
+            <h4>You're not authorized to access this page, plese register or login!</h4>
         </div>
 
-        <div class="text-center">
-            <a type="button" class="btn btn-danger btn-sm" href="{{ route('logout') }}">Logout</a>
+        <div class="text-center p-5">
             <a type="button" class="btn btn-secondary btn-sm" href="{{ route('login.page') }}">Login</a>
             <a type="button" class="btn btn-primary btn-sm" href="{{ route('register.page') }}">Register</a>
-            <a type="button" class="btn btn-info btn-sm" href="{{ route('auth') }}">Home</a>
         </div>
     </div>
 </body>

@@ -301,12 +301,13 @@ Route::middleware(['mult'])->group(function () {
 
 
 // Authorization with Sessions & Middleware:
-Route::get('/auth', [AuthController::class, 'index'])->name('auth');
+Route::get('/auth', [AuthController::class, 'index'])->name('auth')->middleware('authcon');
 Route::get('/auth/loginpage', [AuthController::class, 'loginPage'])->name('login.page');
 Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
 Route::get('/auth/registerpage', [AuthController::class, 'registerPage'])->name('register.page');
 Route::post('/auth/register', [AuthController::class, 'register'])->name('register');
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout')->middleware('authcon');
+Route::get('/unauth', [AuthController::class, 'unauth'])->name('unauth');
 
 // Livewire
 Route::get('/livewire', function () {

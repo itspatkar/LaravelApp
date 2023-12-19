@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>Add New Student</title>
+    <title>Private Page</title>
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -18,23 +18,14 @@
 
 <body>
     <div class="container">
-        <h2 class="p-5 text-center">Authorized Users</h2>
-
-        <div class="container mx-5">
-            <table class="table table-bordered table-striped">
-                <tr class="table-dark">
-                    <th>ID</th>
-                    <th>Email</th>
-                </tr>
-                @foreach ($auths as $auth)
-                    <tr>
-                        <td>{{ $auth->id }}</td>
-                        <td>{{ $auth->email }}</td>
-                    </tr>
-                @endforeach
-            </table>
+        <div class="container p-5">
+            <h2 class="text-center">You're logged in as {{ $email }}</h2>
         </div>
-    </div>
+        <div class="text-center">
+        <a type="button" class="btn btn-danger btn-sm" href="{{ route('logout') }}">Logout</a>
+        <a type="button" class="btn btn-info btn-sm" href="{{ route('auth') }}">Home</a>
+
+    </div></div>
 </body>
 
 </html>
