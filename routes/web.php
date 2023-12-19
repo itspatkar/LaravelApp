@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\SingleActionController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -300,9 +301,12 @@ Route::middleware(['mult'])->group(function () {
 
 
 // Authorization with Sessions & Middleware:
-Route::view('/auth/login', 'auth.login');
-Route::view('/auth/register', 'auth.register');
-
+Route::get('/auth', [AuthController::class, 'index'])->name('auth');
+Route::get('/auth/loginpage', [AuthController::class, 'loginPage'])->name('login.page');
+Route::post('/auth/login', [AuthController::class, 'login'])->name('login');
+Route::get('/auth/registerpage', [AuthController::class, 'registerPage'])->name('register.page');
+Route::post('/auth/register', [AuthController::class, 'register'])->name('register');
+Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout')->middleware('authcon');
 
 // Livewire
 Route::get('/livewire', function () {

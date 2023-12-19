@@ -21,7 +21,7 @@
         <h2 class="p-5 text-center">Registration Page</h2>
 
         <div class="container mx-5">
-            <form method="post" action="{{ route('') }}">
+            <form method="post" action="{{ route('register') }}">
                 @csrf
 
                 <div class="mb-3">
@@ -51,8 +51,9 @@
                 </div>
 
                 <div>
-                    <input type="submit" class="btn btn-success btn-sm" name="submit" value="Submit">
-                    <a type="button" class="btn btn-info btn-sm" href="{{ route('home') }}">Home</a>
+                    <input type="submit" class="btn btn-success btn-sm" name="submit" value="Register">
+                    <a type="button" class="btn btn-primary btn-sm" href="{{ route('login.page') }}">Login</a>
+                    <a type="button" class="btn btn-info btn-sm" href="{{ route('auth') }}">Home</a>
                 </div>
             </form>
         </div>
