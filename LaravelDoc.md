@@ -19,3 +19,10 @@ php artisan make:import <ModelImport> --model=<Model>
 
 php artisan make:export <ModelExport> --model=<Model>
 ```
+
+
+```
+php artisan key:generate
+composer install
+php dump-autoload
+```

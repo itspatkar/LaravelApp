@@ -17,3 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/user', function () {
+    return "Hello World";
+});
+
+Route::post('/user', function () {
+    return response()->json('POST API Called');
+});
+
+Route::delete('/user/{id}', function ($id) {
+    return response($id, 200);
+});
+
+Route::put('/user/{id}', function ($id) {
+    return response($id, 200);
+});
