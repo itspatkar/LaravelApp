@@ -1,3 +1,4 @@
+# Basic Composer:
 ```
 composer create-project laravel/laravel <Project>
 
@@ -21,8 +22,13 @@ php artisan make:export <ModelExport> --model=<Model>
 ```
 
 
-```
-php artisan key:generate
-composer install
-php dump-autoload
-```
+# Generate New ENV
+- Copy .env.example -> .env
+- php artisan config: clear
+- php artisan config: cache
+- php artisan key:generate
+
+
+# Run Existing Laravel Project:
+- composer install
+- composer dump-autoload
