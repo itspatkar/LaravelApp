@@ -309,6 +309,7 @@ Route::post('/auth/register', [AuthController::class, 'register'])->name('regist
 Route::get('/auth/logout', [AuthController::class, 'logout'])->name('logout')->middleware('authcon');
 Route::get('/unauth', [AuthController::class, 'unauth'])->name('unauth');
 
+
 // Livewire
 Route::get('/livewire', function () {
     return view('livewire');
