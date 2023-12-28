@@ -10,6 +10,7 @@ use App\Livewire\AddNumbers;
 use App\Livewire\Clicker;
 use App\Livewire\Counter;
 use App\Livewire\Form;
+use App\Livewire\Greet;
 use App\Livewire\Register;
 use App\Livewire\Show;
 use App\Livewire\Task;
@@ -322,3 +323,7 @@ Route::get('/form', Form::class);
 Route::get('/show', Show::class);
 Route::get('/task', Task::class);
 Route::get('/register', Register::class);
+Route::get('/register', Register::class);
+
+Route::get('/livewire/greet', Greet::class);
+Route::view('/livewire/lw', 'lw');
