@@ -14,6 +14,7 @@ use App\Livewire\Greet;
 use App\Livewire\Register;
 use App\Livewire\Show;
 use App\Livewire\Task;
+use App\Livewire\TestDB;
 
 /*
 |--------------------------------------------------------------------------
@@ -327,3 +328,5 @@ Route::get('/register', Register::class);
 
 Route::get('/livewire/greet', Greet::class);
 Route::view('/livewire/lw', 'lw');
+
+Route::get('/lw/testdb',TestDB::class);
