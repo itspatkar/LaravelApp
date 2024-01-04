@@ -24,8 +24,8 @@ php artisan make:export <ModelExport> --model=<Model>
 
 # Generate New ENV
 - Copy .env.example -> .env
-- php artisan config: clear
-- php artisan config: cache
+- php artisan config:clear
+- php artisan config:cache
 - php artisan key:generate
 
 
