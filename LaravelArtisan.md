@@ -15,13 +15,11 @@
 php artisan make:model <Model> 
 ```
 
-#### Create Migration Table
-php artisan make:migration <create_users_table>
+**Create Migration Table:** `php artisan make:migration <create_users_table>`
 
 #### Run Migrations: `php artisan migrate`
 
-#### Create Component
-php artisan make:component <input>
+Create Component: `php artisan make:component <input>`
 
 #### Create Import/Export:
 > php artisan make:import <ModelImport> --model=<Model>
