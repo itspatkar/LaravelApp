@@ -8,10 +8,12 @@
 > php artisan make:controller <ControllerName>
 
 #### Crete Resource Controller
-php artisan make:controller <ResourceController> --resource
+`php artisan make:controller <ResourceController> --resource`
 
 #### Create DB Model
+```
 php artisan make:model <Model>
+```
 
 #### Create Migration Table
 php artisan make:migration <create_users_table>
