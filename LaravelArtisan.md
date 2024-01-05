@@ -1,7 +1,7 @@
 #### Create New Laravel Project:
 > composer create-project laravel/laravel <ProjectName>
 
-#### Run Laravel Project:
+##### Run Laravel Project:
 > php artisan serve
 
 #### Crete Controller
