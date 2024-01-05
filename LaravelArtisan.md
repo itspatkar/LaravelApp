@@ -12,14 +12,13 @@
 
 #### Create DB Model
 ```
-php artisan make:model <Model>
+php artisan make:model <Model> 
 ```
 
 #### Create Migration Table
 php artisan make:migration <create_users_table>
 
-#### Run Migrations
-php artisan migrate
+#### Run Migrations: `php artisan migrate`
 
 #### Create Component
 php artisan make:component <input>
@@ -28,7 +27,7 @@ php artisan make:component <input>
 > php artisan make:import <ModelImport> --model=<Model>
 > php artisan make:export <ModelExport> --model=<Model>
 
-
+                                                                                                        
 # Generate New ENV
 > Copy .env.example -> .env
 > php artisan config:clear
