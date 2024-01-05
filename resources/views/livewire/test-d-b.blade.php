@@ -10,4 +10,28 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+
+    <div class="container m-4">
+        <h4>Records</h4>
+        <table class="table table-stripped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($records as $record)
+                    <tr>
+                        <td>{{ $record->id }}</td>
+                        <td>{{ $record->name }}</td>
+                        <td>{{ $record->email }}</td>
+                        <td>{{ $record->mobile }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 </div>

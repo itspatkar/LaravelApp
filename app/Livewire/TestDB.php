@@ -16,6 +16,8 @@ class TestDB extends Component
     #[Rule('Required')]
     public $mobile;
 
+
+
     public function save()
     {
         $validated = $this->validate();
@@ -26,7 +28,8 @@ class TestDB extends Component
 
         if (!$stored) {
             TestUser::rollBack();
-            return false;
+        } else {
+            DB::commit();
         }
 
         $this->reset('name', 'email', 'mobile');
@@ -34,6 +37,10 @@ class TestDB extends Component
 
     public function render()
     {
-        return view('livewire.test-d-b');
+        $records = TestUser::paginate(5);
+
+        return view('livewire.test-d-b', [
+            'records' => $records
+        ]);
     }
 }
