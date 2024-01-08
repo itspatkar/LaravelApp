@@ -1,8 +1,13 @@
-#### Create New Laravel Project:
-> composer create-project laravel/laravel <ProjectName>
+### PHP Artisan
 
-##### Run Laravel Project:
-> php artisan serve
+1. Create New Laravel Project:
+    ```
+    composer create-project laravel/laravel &lt;ProjectName&gt;
+    ```
+2. Run Laravel Project:
+    ```
+    php artisan serve
+    ```
 
 #### Crete Controller
 > php artisan make:controller <ControllerName>
