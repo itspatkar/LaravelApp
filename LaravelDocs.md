@@ -1,4 +1,4 @@
-### Composer/Artisan Commands
+## Composer/Artisan Commands
 
 - **Create New Laravel Project :**
     ```
@@ -32,7 +32,7 @@
     ```
     php artisan make:component <input>
     ```
-- **Create Import/Export :**
+- **Create Import/Export Model :**
     ```
     php artisan make:import <ModelImport> --model=<Model>
     ```
@@ -40,13 +40,13 @@
     php artisan make:export <ModelExport> --model=<Model>
     ```
 
-### Generate New ENV
+### Generate New ENV:
 - Copy `.env.example` -> `.env`
 - `php artisan config:clear`
 - `php artisan config:cache`
 - `php artisan key:generate`
 
-### Run Existing Laravel Project
+### Run Existing Laravel Project:
 - `composer install`
 - `composer dump-autoload`
 - Generate ENV
