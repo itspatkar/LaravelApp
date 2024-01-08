@@ -1,15 +1,14 @@
-### PHP Artisan
+### Composer/Artisan Commands
 
-1. Create New Laravel Project:
+- **Create New Laravel Project:**
     ```
     composer create-project laravel/laravel &lt;ProjectName&gt;
     ```
-2. Run Laravel Project:
+- Run Laravel Project:
     ```
     php artisan serve
     ```
-
-#### Crete Controller
+- Crete Controller
 > php artisan make:controller <ControllerName>
 
 #### Crete Resource Controller
