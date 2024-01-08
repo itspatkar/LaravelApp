@@ -51,3 +51,38 @@
 - `composer dump-autoload`
 - Generate ENV
 - `php artisan serve`
+
+
+### Git Commands:
+
+#### Pull from main branch
+- If self branch has uncommited changes :
+    ```
+    git stash
+    ```
+- Switch to main branch :
+    ```
+    git checkout branch (git checkout development)
+    ```
+- Pull changes from main branch :
+    ```
+    git pull origin main_branch (git pull origin development)
+    ```
+- Switch to self branch :
+    ```
+    git checkout branch (git checkout swati_uat)
+    ```
+- Merge main branch to self branch :
+    ```
+    git merge main_branch (git merge development)
+    ```
+- Commit changes in self branch
+    ```
+    git stash apply (to apply stashed changes)
+
+    git add <file>
+    
+    git commit -m "<commit message>"
+
+    git push
+    ```
